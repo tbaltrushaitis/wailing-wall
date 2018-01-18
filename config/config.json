@@ -1,0 +1,7 @@
+{   "xhr_timeout": 5000
+  , "app_url":     "http://wall.local"
+  , "engine": {
+        "name":    "custom"
+      , "version": "0.0.1"
+    }
+}
