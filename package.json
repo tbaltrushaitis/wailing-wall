@@ -34,7 +34,7 @@
     }
   , "repository": {
         "type": "git"
-      , "url":  "git+https://github.com/tbaltrushaitis/wailing-wall.git"
+      , "url":  "git+https://github.com/tbaltrushaitis/wailing-wall"
     }
   , "keywords": [
         "wailing-wall"
@@ -42,6 +42,7 @@
       , "western-wall"
       , "israel"
       , "jerusalem"
+      , "animations"
       , "visualization"
     ]
   , "dependencies": {
