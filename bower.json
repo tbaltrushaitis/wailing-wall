@@ -1,0 +1,91 @@
+{
+    "name": "wailing-wall"
+  , "homepage": "https://github.com/tbaltrushaitis/wailing-wall"
+  , "authors": [
+      "Baltrushaitis Tomas <tbaltrushaitis@gmail.com>"
+    ]
+  , "description": "Visual representation of Wailing Wall wishes processing mechanizm"
+  , "main": "index.html"
+  , "keywords": [
+        "wailing-wall"
+      , "kotel"
+      , "western-wall"
+      , "israel"
+      , "jerusalem"
+      , "visualization"
+    ]
+  , "license": "MIT"
+  , "private": true
+  , "ignore": [
+        "**/.*"
+      , "node_modules"
+      , "bower_modules"
+      , "test"
+      , "tests"
+    ]
+  , "dependencies": {
+        "bootstrap":      "~3.3.7"
+      , "font-awesome":   "~4.7.0"
+      , "html5shiv":      "~3.7.3"
+      , "jquery":         "~3.2.1"
+      , "jquery-autogrow-textarea": "^1.2.1"
+      , "jquery.pulsate": "~1.0.0"
+      , "jquery-tmpl":    "#b504c8afba"
+      , "jquery-ui":      "~1.12.1"
+      , "modernizr":      "^3.5.0"
+      , "noty":           "~2.4.1"
+      , "respond":        "~1.4.2"
+      , "lodash":         "^4.17.4"
+      , "requirejs":      "~2.3.3"
+    }
+  , "overrides": {
+      "bootstrap": {
+        "main": [
+            "dist/**/*.*"
+          , "!**/*.less"
+          , "!**/npm.js"
+          , "!*-theme.*"
+        ]
+      }
+    , "font-awesome": {
+        "main": [
+            "fonts/*.*"
+          , "css/*.css"
+          , "css/*.css.map"
+        ]
+      }
+    , "jquery-autogrow-textarea": {
+        "main": [
+            "dist/*.css"
+          , "dist/*.js"
+        ]
+      }
+    , "jquery-tmpl": {
+        "main": [
+          "*.js"
+        ]
+      }
+    }
+  , "group": {
+      "fonts": [
+        "font-awesome"
+      ]
+    , "libs": [
+          "jquery"
+        , "jquery-ui"
+        , "lodash"
+        , "bootstrap"
+        , "requirejs"
+      ]
+    , "plugins": [
+          "html5shiv"
+        , "jquery-autogrow-textarea"
+        , "jquery.pulsate"
+        , "jquery-tmpl"
+        , "modernizr"
+        , "noty"
+        , "respond"
+      ]
+    , "front": ["fonts", "libs", "plugins"]
+    }
+}

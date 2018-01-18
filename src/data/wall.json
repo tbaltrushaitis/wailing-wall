@@ -1,0 +1,106 @@
+{
+	"blocks": {
+		"positive": {
+			"options": {
+				"order": 1,
+				"imagesize": "md"
+			},
+			"css": {
+				"background-color": "none"
+			},
+			"attributes": {
+				"class": "wall-block pull-right"
+			},
+			"images": {
+				"stick": {
+					"sm": ["assets/img/wall/wall-stick-positive-24-1.png"],
+					"md": ["assets/img/wall/wall-stick-32-5.png"]
+				}
+			}
+		},
+		"positive": {
+			"options": {
+				"order": 2,
+				"imagesize": "md"
+			},
+			"css": {
+				"background-color": "none"
+			},
+			"attributes": {
+				"class": "wall-block pull-left"
+			},
+			"images": {
+				"stick": {
+					"sm": ["assets/img/wall/wall-stick-positive-24-1.png"],
+					"md": ["assets/img/wall/wall-stick-32-5.png"]
+				}
+			}
+		}
+	},
+	"wishes": {
+		"positive": {
+			"options": {
+				"imagesize": "md"
+			},
+			"css": {
+				"background-size": "cover",
+				"background-repeat": "no-repeat"
+			},
+			"attributes": {
+				"class": "wish-cell"
+			},
+			"images": {
+				"stick": {
+					"sm": ["assets/img/wall/wall-stick-positive-24-1.png"],
+					"md": ["assets/img/wall/wall-stick-32-5.png"]
+				}
+			},
+			"list": [
+        {
+  				"id": 1,
+  				"data": {
+  					"iduser": 1,
+  					"idwall": 1,
+  					"wishdate": "",
+  					"wishdateburn": "",
+  					"wishtext": "Simple text of simple Wish",
+  					"irow": 10,
+  					"icol": 10
+  				},
+  				"coordinates": {
+  					"pageX": 0,
+  					"pageY": 0,
+  					"offsetLeft": "",
+  					"offsetTop": ""
+  				},
+  				"css": {
+  					"left": 10,
+  					"top": 10,
+  					"background-color": "none",
+  					"background-repeat": "no-repeat",
+  					"background-image": "none",
+            "z-index": "none"
+  				}
+		    }
+    	]
+		},
+		"negative": {
+			"options": {
+				"imagesize": "md"
+			},
+			"css": {
+				"background-size": "cover",
+				"background-repeat": "no-repeat"
+			},
+			"attributes": {
+				"class": "wish-cell"
+			},
+			"images": {
+				"stick": {
+					"sm": ["assets/img/wall/wall-stick-positive-24-1.png"],
+					"md": ["assets/img/wall/wall-stick-32-5.png"]
+				}
+			}
+		}
+	}
+}

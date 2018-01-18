@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 9 ]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie9"> <![endif]-->
+<!--[if IE 10 ]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"> <![endif]-->
+<!--[if IE 11 ]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie11"> <![endif]-->
+<!--[if (gt IE 11)|!(IE)]><!--><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="noie"> <!--<![endif]-->
+<head>
+  <!--/ Basic Page Needs
+  ========================================================================= /-->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>Wailing Wall visualization</title>
+
+  <!--/ Mobile Specific Metas
+  ========================================================================= /-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <!--/ Metas
+  ========================================================================= /-->
+  <meta name="title" content="Wailing Wall" />
+  <meta name="description" content="Visual representation of Wailing Wall wishes processing mechanizm" />
+  <meta name="keywords" content="wailing-wall, kotel, western-wall, israel, jerusalem, visualization" />
+  <meta name="author" content="tbaltrushaitis" />
+  <meta name="language" content="en_US" />
+  <meta name="robots" content="index, nofollow, noarchive" />
+  <meta name="revisit-after"  content="15 days" />
+
+  <!--/ Metas for Crawlers
+  ========================================================================= /-->
+  <meta property="og:type" content="visualization" />
+  <meta property="og:title" content="Wailing Wall" />
+  <meta property="og:description" content="Visual representation of Wailing Wall wishes processing mechanizm" />
+  <meta property="og:image" content="https://website.com/image250X250.png" />
+  <meta property="og:site_name" content="Wailing Wall" />
+  <meta property="og:url" content="example.com" />
+  <meta property="og:see_also" content="https://site-mirror.com" />
+
+  <!--/
+  <meta property="profile:first_name" content="Name" />
+  <meta property="profile:last_name" content="Surname" />
+  <meta property="profile:username" content="Nick" />
+  <meta property="og:url" content="http://www.site.com" />
+  <meta property="og:see_also" content="http://www.website.com" />
+  <meta property="fb:admins" content="Facebook_ID" />
+  /-->
+
+  <!--/ Fonts
+  ========================================================================= /-->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" href="assets/css/font-awesome.css" />
+
+  <!--/ Styles
+  ========================================================================= /-->
+  <!--/ jquery-ui /-->
+  <!-- <link rel="stylesheet" href="assets/css/jquery-ui.min.css" /> -->
+  <!--/ bootstrap /-->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" /> -->
+  <link rel="stylesheet" href="assets/css/bootstrap.css" />
+
+  <!-- <link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css" /> -->
+  <!-- <link rel="stylesheet" href="assets/css/bootstrap-classic.css" id="bs-css" /> -->
+  <link rel="stylesheet" href="assets/css/bootstrap-theme.css" id="bs-css" />
+  <link rel="stylesheet" href="assets/css/jquery.noty.default.css" />
+
+  <!--/ Custom /-->
+  <link rel="stylesheet" href="assets/css/custom.css" id="css-default" />
+
+  <!--/ Favicon
+  ========================================================================= /-->
+  <link href="assets/img/favicon.png" type="image/x-icon" rel="icon" />
+  <link href="assets/img/favicon.png" type="image/x-icon" rel="shortcut icon" />
+
+  <!--/ HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries /-->
+  <!--[if lt IE 9]>
+    <script src="assets/js/lib/html5shiv.js"></script>
+    <script src="assets/js/lib/respond.src.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <!--/ WALL /-->
+  <div class="wall-wrapper" id="wall-wrapper">
+    <div class="wall-container" id="wall-container">
+      <div class="btn-wall-refresh" id="btn-wall-refresh" title="Refresh"></div>
+      <div class="btn-wall-info hide" id="btn-wall-info"></div>
+      <div class="btn-wall-burn" id="btn-wall-burn" title="Burn wishes" data-l-kw></div>
+    </div>
+  </div>
+
+  <!--/  MODAL  /-->
+  <div class="modal fade" id="wallModal" tabindex="-1" role="dialog" aria-labelledby="wallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="wallModalLabel">Wailing Wall Dream Message</h3>
+        </div>
+
+        <div class="modal-body">
+          <p>Type in your dream as much detailed as you can</p>
+          <textarea class="wish-text" id="wish-text"></textarea>
+          <p>and keep in mind that the more strong would be the visual representation of your dream in your head, the more points you get to and the less time to achieve it. <strong>Wall</strong> just send it to the right Coordinator or in other words - <strong>Egregor</strong></p>
+        </div>
+
+        <div class="modal-footer">
+          <a href="#" class="btn btn-primary" data-dismiss="modal" data-l-kw="close">Close</a>
+          <button class="btn btn-success" type="submit" id="wish-submit" data-dismiss="modal" data-l-kw="submit">Submit</button>
+        </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <!--/  MODAL END  /-->
+
+
+  <div class="footer"></div>
+
+  <!--/  JAVASCRIPT  /-->
+
+  <script src="assets/js/lib/jquery.js"></script>
+  <script src="assets/js/lib/jquery-ui.js"></script>
+  <script src="assets/js/lib/lodash.js"></script>
+  <script src="assets/js/lib/bootstrap.min.js"></script>
+
+  <script src="assets/js/lib/jquery.noty.packaged.js"></script>
+  <script src="assets/js/lib/jquery.autogrow.min.js"></script>
+
+  <script src="assets/js/lib/jquery.tmpl.min.js"></script>
+  <script src="assets/js/lib/jquery.tmplPlus.min.js"></script>
+  <script src="assets/js/lib/jquery.pulsate.js"></script>
+
+  <script src="assets/js/app/wailing-wall.js"></script>
+
+</body>
+</html>
