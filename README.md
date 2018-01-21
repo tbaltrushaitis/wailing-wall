@@ -27,7 +27,7 @@ $ make
 
 | Name | Version | Description |
 |:-----|:-------:|:------------|
-[AutoGrow Textarea](http://bensampaio.github.io/jquery.autogrow) | 1.2.1 | Textarea autogrow functionality plugin
+[AutoGrow&nbsp;Textarea](http://bensampaio.github.io/jquery.autogrow) | 1.2.1 | Textarea autogrow functionality plugin
 [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front-end framework for developing responsive, mobile first projects on the web
 [FontAwesome](http://fontawesome.io/) | 4.7.0 | The iconic Font and CSS toolkit
 [jQuery](http://jquery.com/) | 3.2.1 | JavaScript Library
