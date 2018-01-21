@@ -28,12 +28,9 @@ const mainBowerFiles = require('main-bower-files');
 const gulp          = require('gulp');
 const gulpTasks     = require('gulp-require-tasks');
 const changed       = require('gulp-changed');
-// const chmod         = require('gulp-chmod');
-// const chown         = require('gulp-chown');
 const concat        = require('gulp-concat');
 const cleanCSS      = require('gulp-clean-css');
 const concatCSS     = require('gulp-concat-css');
-// const exec          = require('gulp-exec');
 const minifyCSS     = require('gulp-minify-css');
 const dirSync       = require('gulp-directory-sync');
 const filter        = require('gulp-filter');
@@ -91,10 +88,6 @@ ME.BOWER  = JSON.parse(fs.existsSync('./.bowerrc') ? fs.readFileSync('./.bowerrc
 
 utin.defaultOptions = _.extend({}, ME.pkg.options.iopts);
 
-// console.log(`\n`);
-// console.log(`ME (${typeof ME}) = [${utin(ME)}]`);
-// console.log(`\n`);
-
 let now = new Date();
 let headerTpl = _.template(`/*!
  * Package:\t\t <%= pkg.name %>@<%= pkg.version %>
@@ -131,10 +124,6 @@ let envConfig = {
   , default: {env: (process.env.NODE_ENV || ME.NODE_ENV || global.NODE_ENV || 'test')}
 };
 envConfig = parseArgs(process.argv.slice(2), envConfig);
-
-// console.log('\n');
-// console.log(`envConfig = [${utin(envConfig)}]`);
-// console.log('\n');
 
 
 //-------//
@@ -242,8 +231,6 @@ gulp.task('bower', function () {
   let bowerJS = gulp.src(mBower)
     .pipe(filter([
         '**/*.js'
-      //, '!**/require.js'
-      // , '!**/*.min.js'
       , '!**/npm.js'
     ]))
     .pipe(changed(path.resolve(KEEP, JS)))

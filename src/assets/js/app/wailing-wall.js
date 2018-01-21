@@ -1,3 +1,10 @@
+/*!
+ * Project: wailing-wall
+ * File:    ./src/assets/js/app/wailing-wall.js
+ * Author:  Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
+ * Created: 2018-01-21
+ */
+
 'use strict';
 
 var wallJson = (function () {
@@ -21,47 +28,7 @@ $(document).ready(function () {
 
   $('#wallModal').find('.wish-text').autogrow();
 
-  $('.btn-wall-info').css({
-    top: (  $('.btn-wall-info').parent().prop('offsetHeight') / 2
-          - $('.btn-wall-info').prop('offsetHeight') / 2
-          )
-          * 100
-          / $('.btn-wall-info').parent().prop('offsetHeight')
-          + '%'
-  , left: ( $('.btn-wall-info').parent().prop('clientWidth') / 2
-            - $('.btn-wall-info').prop('clientWidth') / 2
-            - 10
-            )
-            * 100
-            / $('.btn-wall-info').parent().prop('clientWidth')
-            + '%'
-  });
-
-  /* CLICK on INFO block central */
-  $('.btn-wall-info').on('click', function () {
-    noty({
-      layout: 'center',
-      text: '<p>Click in any place and post your wish</p>',
-      type:   'information',
-      dismissQueue: true,
-      timeout: false, // false or time in milliseconds, e.g. 4000 = 4s
-      force: false,
-      modal: true,
-      killer: false,
-      closeWith:  ['click', 'button'],
-      callback: {
-        /*
-        onShow: function() {},
-        afterShow: function() {},
-        onClose: function() {},
-        afterClose: function() {}
-        */
-      },
-      buttons: false
-    });
-  });
-
-  /* CLICK on wall */
+  /* CLICK on the wall */
   $('.wall-container').on('click', function (lo) {
     if ($(lo.target).hasClass('wish-cell')
      || $(lo.target).hasClass('btn-wall-info')
@@ -76,13 +43,13 @@ $(document).ready(function () {
         show: true,
         keyboard: true
       });
-      // console.log("1.1 PUSH to lo: ", 'data-wish-type = ', wishType);
-      // console.log("1.2 PUSH to arrWishes: ", ' lo = ', lo);
-      // console.log("1.3 CALL modal dialog #wallModal");
     };
   });
 
-  /* RESET data-wish-text, data-wish-submit; SET data-wish-type attributes BEFORE SHOW MODAL dialog */
+  /*
+   * RESET data-wish-text, data-wish-submit;
+   * SET data-wish-type attributes BEFORE SHOW MODAL dialog
+   */
   $('#wallModal').on('show.bs.modal', function (eventModal) {
     var wishType = $(arrWishes).attr('data-wish-type');
     $('#wallModal').attr('data-wish-type', wishType);
@@ -90,17 +57,18 @@ $(document).ready(function () {
     $(arrWishes).attr('data-wish-submit', false);
     $('#wallModal').find('.wish-text').val('');
     $('#wallModal').find('.wish-text').focus();
-    //console.log("2.1 PUSH to #wallModal: data-wish-type = ", wishType);
-    //console.log("2.2 RESET data-wish-submit for arrWishes ");
+  });
+
+  $('#wallModal').on('shown.bs.modal', function () {
+    $('#wallModal').find('#wish-text').focus();
   });
 
   /* CHECK data-wish-submit value and CALL addWishCell function if TRUE */
   $('#wallModal').on('hidden.bs.modal', function (eventModal) {
     if (true === $(arrWishes).attr('data-wish-submit') && $(arrWishes).attr('data-wish-text') !== '') {
-      //console.log("4.1 CALL addWishCell with arrWishes = ", arrWishes);
       addWishCell(arrWishes);
     } else {
-      //console.log("4.2 CANCELLED addWishCell with arrWishes = ", arrWishes);
+      //console.log("CANCELLED addWishCell with arrWishes = ", arrWishes);
     };
   });
 
@@ -113,18 +81,12 @@ $(document).ready(function () {
     });
   });
 
-  //$('#wallModal').on('shown.bs.modal', function () {
-    // $('#wallModal').find('#wish-text').focus();
-    // console.log("2.3 SET FOCUS on ", $('#wallModal').find('.wish-text'));
-  //});
-
   $('#btn-wall-refresh').on('click', function (evt) {
     addWishesRandom(100);
   });
 
   /* CLICK on BURN button */
   $('#btn-wall-burn').on('click', function () {
-    //console.log("BURN clicked");
     fireWishes();
   });
 
@@ -136,7 +98,6 @@ $(document).ready(function () {
 
 
 function buildWall (htmlContainer) {
-  //console.log('buildWall');
   let bWidth = ($(htmlContainer).prop('clientWidth') / _.size(wallJson.blocks)) * 100 / $(htmlContainer).prop('clientWidth') + '%';
   _.each(wallJson.blocks, function (loBlock, blockName) {
     var htmlBlock = $('<div />')
@@ -151,7 +112,7 @@ function buildWall (htmlContainer) {
   });
 };
 
-function fireWishes () {
+function fireWishes (cb) {
   $($.find('.wall-block')).each(function (idx, wb) {
     var wt = $(wb).attr('data-wish-type');
     $(wb).animate((wt == 'positive' ? {'top': "-=500"} : {'bottom': "-=500"}), 7000, function () {
@@ -163,12 +124,15 @@ function fireWishes () {
     .delay(5000)
     .animate((wt == 'positive' ? {'top': "+=500"} : {'bottom': "+=500"}), 300);
   });
+  if ('function' === typeof cb) {
+    console.log('RUNNING CALLBACK');
+    return cb();
+  }
 };
 
 function presentation () {
   addWishesRandom(100);
   fireWishes();
-  addWishesRandom(100);
 };
 
 
@@ -187,7 +151,7 @@ function addWishCell (loWish, mode) {
       iD = iX + '-' + iY;
 
   /* define elements */
-  // a Wish container
+  // Wish container
   var i_block = $('<div />').attr({
                   'class': 'wish-cell',
                   'id': 'cell-' + iD,
@@ -199,7 +163,7 @@ function addWishCell (loWish, mode) {
                   top: iY - 32 + "px",
                   'background-image': "url('" + getRndImage(wishType) + "')"
                 })
-    // custom container for jquery.noty
+    // Container for jquery.noty
     , i_noty =  $('<div />').attr({
                   'class': 'wish-noty',
                   'id': 'noty-' + iD
@@ -246,9 +210,7 @@ function addWishCell (loWish, mode) {
       });
   };
   i_block.addClass('checked');
-  //console.log('5. WISH ADDED: ', $(i_block), "; wishType = ", wishType, "; wishText = ", wishText);
 };
-
 
 function getRndImage (wt) {
   var imgSize = wallJson.blocks[wt]['options']['imagesize'];
@@ -256,22 +218,18 @@ function getRndImage (wt) {
   return imgFile;
 };
 
-
 function addWishesRandom (wc) {
   var wc = ($.isNumeric(wc) ? wc : 1),
-    ts = $.now(),
     arrBlocks = $('.wall-block'),
     bCount = arrBlocks.length;
 
   for (var i = 1; i <= wc; i++) {
 
-    var cBlock = $(arrBlocks[_.random(bCount - 1)]),
-      clW = cBlock.prop('clientWidth') - 20,
-      clH = cBlock.prop('clientHeight') - 20;
-    var evt = new $.Event("click");
+    var cBlock = $(arrBlocks[_.random(bCount - 1)])
+      , clW = cBlock.prop('clientWidth') - 20
+      , clH = cBlock.prop('clientHeight') - 20;
 
-    evt.pageX = _.random(clW) + cBlock.prop('offsetLeft'),
-    evt.pageY = _.random(clH) + cBlock.prop('offsetTop'),
+    var evt = new $.Event("click");
     _.extend(evt, {
         'target':           $(cBlock)
       , 'data-wish-type':   $(cBlock).attr('data-wish-type')
@@ -279,31 +237,21 @@ function addWishesRandom (wc) {
       , 'data-wish-submit': true
       , 'offsetLeft':       cBlock.prop('offsetLeft')
       , 'offsetTop':        cBlock.prop('offsetTop')
+      , 'pageX':            _.random(clW) + cBlock.prop('offsetLeft')
+      , 'pageY':            _.random(clH) + cBlock.prop('offsetTop')
     });
     addWishCell(evt, true);
   };
 
-  var ms = $.now() - ts,
-    sec = parseInt(ms/1000),
-    min = parseInt(sec/60),
-    hrs = parseInt(min/60);
-
-  ms = ms - sec*1000 - min*60 - hrs*60;
 };
 
 function postWishJson (wc) {
   var ts = $.now(),
     userWishes = wallJson.wishes;
   _.each(userWishes, function(wishType, idx) {
-    //console.log("userWishes = ", idx, wishType);
     _.each(wishType.list, function (userData, i) {
-      console.log("userData = ", idx, i, userData);
+      // console.log("userData = ", idx, i, userData);
     });
   });
 
-  var ms = $.now() - ts,
-    sec = parseInt(ms/1000),
-    min = parseInt(sec/60),
-    hrs = parseInt(min/60);
-  ms = ms - sec*1000 - min*60 - hrs*60;
 };

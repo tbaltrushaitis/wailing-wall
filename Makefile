@@ -88,16 +88,6 @@ clone:
 banner:
 	@ if [ -f "${APP_LOGO}" ]; then cat "${APP_LOGO}"; fi
 
-logo:
-	@ figlet-toilet --termwidth \
-									--font big \
-									--filter border \
-									--filter gay \
-									$(shell echo " ${APP_NAME} " | tr [:lower:] [:upper:]) \
-									-E "utf8" \
-									> ${APP_LOGO} -k \
-	&& if [ -f "${APP_LOGO}" ]; then cat "${APP_LOGO}"; fi ;
-
 ##  ------------------------------------------------------------------------  ##
 
 .PHONY: clean clean-all
