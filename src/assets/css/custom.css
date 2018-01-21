@@ -91,20 +91,6 @@ html, body {
   min-height: 100px;
 }
 
-.btn-wall-info {
-  clear: both;
-  height: 317px;
-  width: 244px;
-  display: inline-table;
-  position: absolute;
-
-  background-image: url('../img/wall/uni.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 3;
-  border-radius: 500px 500px 500px 500px;
-}
-
 .btn-wall-burn {
   clear: both;
   height: 32px;

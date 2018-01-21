@@ -27,10 +27,10 @@ $ make
 
 | Name | Version | Description |
 |:-----|:-------:|:------------|
+[AutoGrow Textarea](http://bensampaio.github.io/jquery.autogrow) | 1.2.1 | Textarea autogrow functionality plugin
 [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front-end framework for developing responsive, mobile first projects on the web
 [FontAwesome](http://fontawesome.io/) | 4.7.0 | The iconic Font and CSS toolkit
 [jQuery](http://jquery.com/) | 3.2.1 | JavaScript Library
-[jQuery AutoGrow Textarea](http://bensampaio.github.io/jquery.autogrow) | 1.2.1 | Textarea autogrow functionality plugin
 [jQuery.pulsate](https://github.com/Kilian/jQuery.pulsate) | 1.0.0 | Adds a pulsating effect to elements.
 [jQuery UI](http://jqueryui.com/) | 1.12.1 |  Set of user interface interactions, effects, widgets, and themes built on top of the jQuery
 [Lodash](https://lodash.com/) | 4.17.4 | Utility library delivering modularity, performance & extras
@@ -45,6 +45,9 @@ $ make
 ---
 
 ## :memo: Change log ##
+
+**v0.0.2:**
+- [x] Various improvements and code cleans
 
 **v0.0.1:**
 - [x] Initial release

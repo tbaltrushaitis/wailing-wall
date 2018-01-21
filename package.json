@@ -1,5 +1,5 @@
 {   "name":     "wailing-wall"
-  , "version":  "0.0.1"
+  , "version":  "0.0.2"
   , "title":    "Wailing Wall visualization"
   , "description":  "Visual representation of Wailing Wall wishes processing mechanizm"
   , "homepage": "https://github.com/tbaltrushaitis/wailing-wall"
@@ -19,17 +19,9 @@
   , "os":  ["linux"]
   , "main": "gulpfile.js"
   , "scripts": {
-        "preinstall": "npm i -g versionn@1.0.2 && npm i -g gulp"
-      , "start":    "./setup.sh"
-      , "test":     "./setup.sh test"
-      , "setup":    "./setup.sh prepare"
-      , "build":    "./setup.sh build"
-      , "deploy":   "./setup.sh deploy"
-      , "rebuild":  "./setup.sh rebuild"
-      , "all":      "./setup.sh all"
-      , "default":  "gulp --env=test"
-      , "dev":      "gulp --env=dev"
-      , "prod":     "gulp --env=production"
+        "preinstall": "npm i -g versionn && npm i -g gulp"
+      , "start":    ""
+      , "test":     "gulp test"
       , "watch":    "gulp watch"
     }
   , "repository": {
@@ -46,23 +38,19 @@
       , "visualization"
     ]
   , "dependencies": {
+        "bower": "^1.8.2"
+      , "gulp":  "^3.9.1"
     }
   , "devDependencies": {
-        "bower":                "^1.8.2"
-      , "dateformat":           "^3.0.2"
+        "dateformat":           "^3.0.2"
       , "del":                  "^3.0.0"
-      , "gulp":                 "^3.9.1"
       , "gulp-add-src":         "^0.2.0"
       , "gulp-changed":         "^3.1.0"
-      , "gulp-chmod":           "^2.0.0"
-      , "gulp-chown":           "^2.0.0"
       , "gulp-clean-css":       "^3.0.4"
       , "gulp-concat":          "^2.6.0"
       , "gulp-concat-css":      "^3.0.0"
       , "gulp-data":            "^1.2.1"
       , "gulp-directory-sync":  "^1.2.3"
-      , "gulp-exec":            "^3.0.1"
-      , "gulp-file-include":    "^2.0.0"
       , "gulp-filter":          "^5.0.0"
       , "gulp-gzip":            "^1.4.0"
       , "gulp-headerfooter":    "^1.0.3"
@@ -78,7 +66,6 @@
       , "gulp-uglify":          "^3.0.0"
       , "gulp-util":            "^3.0.8"
       , "gulp-watch":           "^5.0.0"
-      , "jquery":               "^3.2.1"
       , "jshint":               "^2.9.3"
       , "jshint-stylish":       "^2.2.1"
       , "lodash":               "^4.17.4"
@@ -88,10 +75,13 @@
       , "nconf":                "^0.10.0"
       , "read-config":          "^2.0.0"
       , "vinyl-paths":          "^2.1.0"
-      , "underscore":           "^1.8.3"
     }
   , "outdatedDependencies": {
-      "gulp-sequence": "^0.4.6"
+        "gulp-chmod": "^2.0.0"
+      , "gulp-chown": "^2.0.0"
+      , "gulp-exec":  "^3.0.1"
+      , "jquery":     "^3.2.1"
+      , "underscore": "^1.8.3"
     }
   , "options": {
       "bower": {
@@ -103,8 +93,8 @@
           }
       }
     , "clean": {
-        "debug":            true
-      , "processImport":    true
+        "debug":         true
+      , "processImport": true
       }
     , "exec": {
           "continueOnError":  false
@@ -128,46 +118,46 @@
       }
     , "uglify": {
         "compress": {
-            "sequences":        true
-          , "properties":       true
-          , "dead_code":        true
-          , "drop_debugger":    true
-          , "unsafe":           false
-          , "conditionals":     true
-          , "comparisons":      true
-          , "evaluate":         true
-          , "booleans":         true
-          , "loops":            true
-          , "unused":           true
-          , "hoist_funs":       true
-          , "hoist_vars":       false
-          , "if_return":        true
-          , "join_vars":        true
-          , "cascade":          true
-          , "side_effects":     true
-          , "warnings":         true
-          , "global_defs":      {}
+            "sequences":     true
+          , "properties":    true
+          , "dead_code":     true
+          , "drop_debugger": true
+          , "unsafe":        false
+          , "conditionals":  true
+          , "comparisons":   true
+          , "evaluate":      true
+          , "booleans":      true
+          , "loops":         true
+          , "unused":        true
+          , "hoist_funs":    true
+          , "hoist_vars":    false
+          , "if_return":     true
+          , "join_vars":     true
+          , "cascade":       true
+          , "side_effects":  true
+          , "warnings":      true
+          , "global_defs":   {}
         }
       , "mangle":   false
       , "output": {
-            "indent_start":     0
-          , "indent_level":     4
-          , "quote_keys":       false
-          , "ascii_only":       false
-          , "inline_script":    false
-          , "width":            80
-          , "max_line_len":     32000
-          , "beautify":         false
-          , "source_map":       null
-          , "bracketize":       false
-          , "comments":         false
-          , "semicolons":       true
+            "indent_start":  0
+          , "indent_level":  4
+          , "quote_keys":    false
+          , "ascii_only":    false
+          , "inline_script": false
+          , "width":         80
+          , "max_line_len":  32000
+          , "beautify":      false
+          , "source_map":    null
+          , "bracketize":    false
+          , "comments":      false
+          , "semicolons":    true
         }
       }
     , "watch": {
-        "ignoreInitial":    false
-      , "verbose":          true
-      , "readDelay":        100
+        "ignoreInitial": false
+      , "verbose":       true
+      , "readDelay":     100
       }
     , "iopts": {
           "showHidden": false
