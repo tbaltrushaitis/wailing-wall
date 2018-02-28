@@ -112,6 +112,7 @@ function buildWall (htmlContainer) {
   });
 };
 
+
 function fireWishes (cb) {
   $($.find('.wall-block')).each(function (idx, wb) {
     var wt = $(wb).attr('data-wish-type');
@@ -128,11 +129,6 @@ function fireWishes (cb) {
     console.log('RUNNING CALLBACK');
     return cb();
   }
-};
-
-function presentation () {
-  addWishesRandom(100);
-  fireWishes();
 };
 
 
