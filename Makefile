@@ -10,14 +10,13 @@
 ##  ------------------------------------------------------------------------  ##
 
 APP_NAME := "wailing-wall"
+APP_LOGO := ./assets/BANNER
 
 REPO_HOST := https://github.com
 REPO_USER := tbaltrushaitis
 REPO_URL := $(shell git ls-remote --get-url)
 GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
 APP_REPO := ${REPO_HOST}/${REPO_USER}/${APP_NAME}.git
-
-APP_LOGO := ./assets/BANNER
 
 APP_ENV := $(shell cat NODE_ENV)
 CODE_VERSION := $(shell cat ./VERSION)
@@ -37,11 +36,11 @@ ifeq ($(COMMIT_EXISTS), 0)
 $(file > COMMIT,${GIT_COMMIT})
 $(warning ${BYellow}[${DT}] Created file [COMMIT]${NC})
 endif
+DIR_COMMIT := ${GIT_COMMIT}
 
 DIR_SRC := ${WD}/src
 DIR_BUILD := ${WD}/build-${CODE_VERSION}
 DIR_DIST := ${WD}/dist-${CODE_VERSION}
-DIR_COMMIT := ${GIT_COMMIT}
 DIR_WEB := ${WD}/webroot
 
 ##  ------------------------------------------------------------------------  ##
